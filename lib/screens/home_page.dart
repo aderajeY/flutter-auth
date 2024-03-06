@@ -24,8 +24,7 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _screenTitle(),
-              _dropDownWidget(),
-              _sunMoon()
+              _containBoth()
             ],
           ),
         ),
@@ -76,13 +75,49 @@ class HomePage extends StatelessWidget {
       children: [
         CustomDropDownClass(
           values: const ['sun', 'moon'],
-          width: _deviceWidth * 0.5,
+          width: _deviceWidth * 0.35,
         ),
         CustomDropDownClass(
           values: const ['sun', 'moon'],
-          width: _deviceWidth * 0.5,
+          width: _deviceWidth * 0.35,
         ),
       ],
+    );
+  }
+  Widget _containBoth(){
+    return Container(
+      height: _deviceHeight * 0.25,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _dropDownWidget(),
+          _sunMoon(),
+          _button()
+        ],
+      ),
+
+    );
+  }
+  Widget _button(){
+
+    return Container(
+      width: _deviceWidth,
+      margin: EdgeInsets.only(bottom: _deviceHeight*0.006),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10)
+      ),
+      child: MaterialButton(
+        onPressed: (){},
+        child: const Text(
+          "Button",
+          style: TextStyle(
+            color: Colors.black
+            ),
+            ),
+            ),
     );
   }
 }

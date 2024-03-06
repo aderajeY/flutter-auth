@@ -11,16 +11,27 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: _screenTitle(),
+    );
+  }
+  Widget _screenTitle(){
+    return const Text(
+      'GoMoon',
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 70,
+        fontWeight: FontWeight.w800
+        ),
+    );
+  }
+  Widget _moonImageWidget(){
+    return Container(
         decoration: const BoxDecoration(
-          color: Colors.red,
           image: DecorationImage(
             image: AssetImage("assets/images/moon.png"),
             fit: BoxFit.contain,
-            
             ),
         ),
-      ),
-    );
+      );
   }
 }

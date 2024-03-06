@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable, sort_child_properties_last, avoid_unnecessary_containers
+// ignore_for_file: must_be_immutable, sort_child_properties_last, avoid_unnecessary_containers, no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
 
@@ -13,7 +13,9 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           height: _deviceHeight,
-          padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.15),
+          padding: EdgeInsets.symmetric(
+            horizontal: _deviceWidth * 0.15,
+          ),
           width: _deviceWidth,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,48 +30,76 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-  Widget _screenTitle(){
+
+  Widget _screenTitle() {
     return const Text(
       'GoMoon',
       style: TextStyle(
         color: Colors.green,
         fontSize: 70,
-        fontWeight: FontWeight.w800
-        ),
+        fontWeight: FontWeight.w800,
+      ),
     );
   }
-  Widget _moonImageWidget(){
+
+  Widget _moonImageWidget() {
     return Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/moon.png"),
-            fit: BoxFit.contain,
-            ),
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/moon.png"),
+          fit: BoxFit.contain,
         ),
-      );
+      ),
+    );
   }
-  Widget _dropDownWidget(){
-    List<DropdownMenuItem<String>> _items = [
-  'Mercury',
-  'Venus',
-  'Earth',
-  'Mars',
-  'Jupiter',
-  'Saturn',
-  'Uranus',
-  'Neptune'
-].map((e) => DropdownMenuItem(
-  child: Text(e),
-  value: e
-  )
-  ).toList();
+
+  Widget _dropDownWidget() {
+    List<String> _items = [
+      'Mercury',
+      'Venus',
+      'Earth',
+      'Mars',
+      'Jupiter',
+      'Saturn',
+      'Uranus',
+      'Neptune'
+    ];
     return Container(
-      child: DropdownButton(
-        onChanged: (_){},
-        items: _items
-        
+      padding: EdgeInsets.symmetric(
+        horizontal: _deviceWidth * 0.05,
+      ),
+      width: _deviceWidth,
+      decoration: BoxDecoration(
+        color: const Color.fromRGBO(
+          53,
+          53,
+          53,
+          1.0,
         ),
-      
+        borderRadius: BorderRadius.circular(
+          10,
+        )
+      ),
+      child: DropdownButton(
+        onChanged: (_) {},
+        value: _items.first,
+        items: _items
+            .map((e) => DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                ))
+            .toList(),
+        underline: Container(),
+        dropdownColor: const Color.fromRGBO(
+          53,
+          53,
+          53,
+          1.0,
+        ),
+        style: const TextStyle(
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }

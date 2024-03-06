@@ -1,18 +1,20 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
+class HomePage extends StatelessWidget {
+  late double _deviceHeight, _deviceWidth;
+  HomePage({super.key});
   @override
   Widget build(BuildContext context) {
+    _deviceHeight = MediaQuery.of(context).size.height;
+    _deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: Container(
+          color: Colors.red,
+          height: _deviceHeight,
+          width: _deviceWidth,
           child: _screenTitle(),
         ),
       ),
@@ -22,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     return const Text(
       'GoMoon',
       style: TextStyle(
-        color: Colors.white,
+        color: Colors.green,
         fontSize: 70,
         fontWeight: FontWeight.w800
         ),

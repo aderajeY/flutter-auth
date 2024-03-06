@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable, sort_child_properties_last, avoid_unnecessary_containers, no_leading_underscores_for_local_identifiers
 
+import 'package:auth/widgets/custom_dropdown_button.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -24,6 +25,7 @@ class HomePage extends StatelessWidget {
             children: [
               _screenTitle(),
               _dropDownWidget(),
+              _sunMoon()
             ],
           ),
         ),
@@ -54,7 +56,7 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _dropDownWidget() {
-    List<String> _items = [
+    return CustomDropDownClass(values: const [
       'Mercury',
       'Venus',
       'Earth',
@@ -63,43 +65,13 @@ class HomePage extends StatelessWidget {
       'Saturn',
       'Uranus',
       'Neptune'
-    ];
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: _deviceWidth * 0.05,
-      ),
-      width: _deviceWidth,
-      decoration: BoxDecoration(
-        color: const Color.fromRGBO(
-          53,
-          53,
-          53,
-          1.0,
-        ),
-        borderRadius: BorderRadius.circular(
-          10,
-        )
-      ),
-      child: DropdownButton(
-        onChanged: (_) {},
-        value: _items.first,
-        items: _items
-            .map((e) => DropdownMenuItem(
-                  child: Text(e),
-                  value: e,
-                ))
-            .toList(),
-        underline: Container(),
-        dropdownColor: const Color.fromRGBO(
-          53,
-          53,
-          53,
-          1.0,
-        ),
-        style: const TextStyle(
-          color: Colors.white,
-        ),
-      ),
+    ], width: _deviceWidth);
+  }
+
+  Widget _sunMoon() {
+    return CustomDropDownClass(
+      values: const ['sun', 'moon'],
+      width: _deviceWidth * 0.5,
     );
   }
 }

@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
         child: Container(
           color: Colors.red,
           height: _deviceHeight,
+          padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.15),
           width: _deviceWidth,
           child: _screenTitle(),
         ),

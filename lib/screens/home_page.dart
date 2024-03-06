@@ -11,7 +11,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screenTitle(),
+      body: SafeArea(
+        child: Container(
+          child: _screenTitle(),
+        ),
+      ),
     );
   }
   Widget _screenTitle(){

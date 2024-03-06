@@ -18,7 +18,9 @@ class HomePage extends StatelessWidget {
             horizontal: _deviceWidth * 0.15,
           ),
           width: _deviceWidth,
-          child: Column(
+          child: Stack(
+            children:[
+            Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,9 +29,15 @@ class HomePage extends StatelessWidget {
               _containBoth()
             ],
           ),
+          Align(
+            alignment: Alignment.centerRight,
+            child:_moonImageWidget()
+          )
+         
+          ]
         ),
       ),
-    );
+    ));
   }
 
   Widget _screenTitle() {
@@ -45,10 +53,12 @@ class HomePage extends StatelessWidget {
 
   Widget _moonImageWidget() {
     return Container(
+      width: _deviceWidth*0.65,
+      height: _deviceHeight*0.4,
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/moon.png"),
-          fit: BoxFit.contain,
+          fit: BoxFit.fill,
         ),
       ),
     );

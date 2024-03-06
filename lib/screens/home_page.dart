@@ -69,9 +69,20 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _sunMoon() {
-    return CustomDropDownClass(
-      values: const ['sun', 'moon'],
-      width: _deviceWidth * 0.5,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        CustomDropDownClass(
+          values: const ['sun', 'moon'],
+          width: _deviceWidth * 0.5,
+        ),
+        CustomDropDownClass(
+          values: const ['sun', 'moon'],
+          width: _deviceWidth * 0.5,
+        ),
+      ],
     );
   }
 }

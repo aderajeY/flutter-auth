@@ -12,11 +12,18 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          color: Colors.red,
           height: _deviceHeight,
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.15),
           width: _deviceWidth,
-          child: _dropDownWidget(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _screenTitle(),
+              _dropDownWidget(),
+            ],
+          ),
         ),
       ),
     );

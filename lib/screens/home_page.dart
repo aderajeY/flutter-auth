@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, sort_child_properties_last, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
 
@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
           height: _deviceHeight,
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.15),
           width: _deviceWidth,
-          child: _screenTitle(),
+          child: _dropDownWidget(),
         ),
       ),
     );
@@ -40,5 +40,29 @@ class HomePage extends StatelessWidget {
             ),
         ),
       );
+  }
+  Widget _dropDownWidget(){
+    List<DropdownMenuItem<String>> _items = [
+  'Mercury',
+  'Venus',
+  'Earth',
+  'Mars',
+  'Jupiter',
+  'Saturn',
+  'Uranus',
+  'Neptune'
+].map((e) => DropdownMenuItem(
+  child: Text(e),
+  value: e
+  )
+  ).toList();
+    return Container(
+      child: DropdownButton(
+        onChanged: (_){},
+        items: _items
+        
+        ),
+      
+    );
   }
 }
